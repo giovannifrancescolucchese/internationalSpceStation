@@ -23,7 +23,7 @@ class ComuncationServiceImplTest {
     void createComunicazioneFoodNotEnough() {
         //arrange
         Mockito.when(baseSpazialeService.checkFood()).thenReturn(true);
-        ComunicationService comunicationService =new ComuncationServiceImpl();
+        ComunicationService comunicationService=new ComuncationServiceImpl();
 
         //acts
         Comunication comunication=comunicationService.createComunicazioneFood(baseSpazialeService);
