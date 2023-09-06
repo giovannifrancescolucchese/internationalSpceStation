@@ -4,6 +4,9 @@ import org.example.enums.ModuloTipo;
 import org.example.model.*;
 
 public class EquipaggioServiceImpl implements EquipaggioService {
+    public EquipaggioServiceImpl() {
+    }
+
     @Override
     public boolean atLeast1Woman(Equipaggio equipaggio) {
         return equipaggio.getFormazione().stream().parallel()
