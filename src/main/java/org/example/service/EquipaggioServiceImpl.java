@@ -7,7 +7,7 @@ public class EquipaggioServiceImpl implements EquipaggioService {
     @Override
     public boolean atLeast1Woman(Equipaggio equipaggio) {
         return equipaggio.getFormazione().stream().parallel()
-                .filter(astronauta -> astronauta.getSesso() == 'F').findAny().isPresent();
+                .anyMatch(astronauta -> astronauta.getSesso() == 'F');
     }
 
     @Override
