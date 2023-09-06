@@ -26,8 +26,8 @@ public class ComuncationServiceImpl implements ComunicationService{
     @Override
     public Comunication createComunicazioneFood(BaseSpazialeService baseSpazialeService) {
         if (baseSpazialeService.checkFood())
-            return new Comunication("ALERT: scorte cibo in esaurimento", ComunicationType.SERVIZIO);
-        return new Comunication("scorte cibo sotto controllo", ComunicationType.SERVIZIO);
+            return new Comunication("scorte cibo sotto controllo", ComunicationType.SERVIZIO);
+        return new Comunication("ALERT: scorte cibo in esaurimento", ComunicationType.SERVIZIO);
     }
 
     @Override
