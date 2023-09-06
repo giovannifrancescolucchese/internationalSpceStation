@@ -11,6 +11,4 @@ public class VettoreServiceImpl implements VettoreService {
         double percentualeIfAdd=((moduliStessaAgenzia+1)/(vettore.getModuli().size()+1))*100;
         return (percentualeIfAdd<=50);
     }
-
-
 }

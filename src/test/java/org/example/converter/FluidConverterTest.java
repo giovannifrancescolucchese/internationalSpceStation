@@ -28,24 +28,4 @@ class FluidConverterTest {
         //assert
         assertEquals(1.32086, fluidConverter.getGalloni(), 0.0001);
     }
-
-    @Test
-    void getLitri() {
-    }
-
-    @Test
-    void testEquals() {
-    }
-
-    @Test
-    void canEqual() {
-    }
-
-    @Test
-    void testHashCode() {
-    }
-
-    @Test
-    void testToString() {
-    }
 }

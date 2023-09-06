@@ -42,7 +42,7 @@ public class BaseSpazialeServiceImpl implements BaseSpazialeService {
     @Override
     public boolean checkTrash() {
         List<Modulo> listTrashModules=this.baseSpaziale.getModuli().stream()
-                .filter(modulo -> modulo.getModuloTipo().equals(ModuloTipo.STORAGE_FOOD))
+                .filter(modulo -> modulo.getModuloTipo().equals(ModuloTipo.STORAGE_TRASH))
                 .collect(Collectors.toList());
         Double trash=listTrashModules.stream().map(Modulo::getWeight).collect(Collectors.toList())
                 .stream().mapToDouble(WeightConverter::getKili).sum();
