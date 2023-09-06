@@ -14,8 +14,8 @@ public class EquipaggioServiceImpl implements EquipaggioService {
     public boolean atLeast70percNoSameSpaceAncy(Equipaggio equipaggio, Astronauta astronauta) {
         long astronautiStessaAgenzia=equipaggio.getFormazione().stream()
                 .filter(a -> a.getAgenziaSpaziale().equals(astronauta.getAgenziaSpaziale())).count();
-        double percentualeIfAdd=((astronautiStessaAgenzia+1)/(equipaggio.getFormazione().size()+1))*100;
-        return (percentualeIfAdd<=70);
+        double percentualeIfAdd=((astronautiStessaAgenzia+1)/(equipaggio.getFormazione().size()+1d))*100d;
+        return (percentualeIfAdd<=70d);
     }
 
     @Override

@@ -1,5 +1,7 @@
 package org.example;
 
+import org.example.model.Equipaggio;
+
 /**
  * Hello world!
  *

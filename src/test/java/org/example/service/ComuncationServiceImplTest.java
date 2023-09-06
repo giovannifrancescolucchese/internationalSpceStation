@@ -30,6 +30,6 @@ class ComuncationServiceImplTest {
         //asserts
         assertEquals(ComunicationType.SERVIZIO, comunication.getComunicationType(), "la tipologia della comunicazione è corretta");
         assertEquals("ALERT: scorte cibo in esaurimento", comunication.getTesto(), "il testo della comunicazione è corretto");
-
     }
+
 }

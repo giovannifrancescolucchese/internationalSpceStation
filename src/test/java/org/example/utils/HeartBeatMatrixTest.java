@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class HeartBeatMatrixTest {
     List<LifeParameter> lifeParameterList;
-
+    List<LifeParameter>  lifeParameterList2;
     @BeforeEach
     void reArrangeLifeParameterList() {
      lifeParameterList=new ArrayList<>();
@@ -27,6 +27,14 @@ class HeartBeatMatrixTest {
      LifeParameter lifeParameter2=new LifeParameter(LocalDateTime.now().minusMinutes(1),null,100);
      lifeParameterList.add(lifeParameter1);
      lifeParameterList.add(lifeParameter2);
+
+        lifeParameterList2 = new ArrayList<>();
+        LifeParameter lifeParameter4 = new LifeParameter(LocalDateTime.now(), null, 70);
+        LifeParameter lifeParameter5 = new LifeParameter(LocalDateTime.now(), null, 60);
+        LifeParameter lifeParameter6 = new LifeParameter(LocalDateTime.now(), null, 80);
+        lifeParameterList2.add(lifeParameter4);
+        lifeParameterList2.add(lifeParameter5);
+        lifeParameterList2.add(lifeParameter6);
     }
 
     @Test
@@ -41,5 +49,19 @@ class HeartBeatMatrixTest {
         boolean result=heartBeatMatrix.isOutOfRangeHeartBeatLast7Minutes();
         //assert
         assertTrue(result);
+    } @Test
+    @DisplayName("GIVEN un astronauta maschio di 41 anni con ultimi 7 minuti media di battiti a 70 WHEN isNotOutOfRangeHeartBeatLast7Minutes THEN true")
+    void isNotOutOfRangeHeartBeatLast7Minutes() {
+        //arrange
+
+        Astronauta astronauta=new Astronauta("","", LocalDate.now().minusYears(41L),
+                Arrays.asList(CompitoAstronauta.PILOTA),  'F', Nazionalita.giapponese, AgenziaSpaziale.JAXA, lifeParameterList2);
+        HeartBeatMatrix heartBeatMatrix=new HeartBeatMatrix(astronauta);
+        //act
+        boolean result=!heartBeatMatrix.isOutOfRangeHeartBeatLast7Minutes();
+        //assert
+        assertTrue(result);
     }
+
+
 }

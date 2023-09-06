@@ -46,6 +46,5 @@ public class HeartBeatMatrix {
         return true;
     }
 
-
 }
 
