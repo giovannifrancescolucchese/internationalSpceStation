@@ -22,11 +22,11 @@ class ComuncationServiceImplTest {
     @DisplayName("GIVEN food status not enough in base spaziale WHEN createComunicazioneFood THEN create a Comunication of tipe ComunicationType.SERVIZIO with testo equal to ALERT: scorte cibo in esaurimento")
     void createComunicazioneFoodNotEnough() {
         //arrange
-        Mockito.when(baseSpazialeService.checkFood()).thenReturn(true);
-        ComunicationService comunicationService = new ComuncationServiceImpl();
+        Mockito.when(baseSpazialeService.checkFood()).thenReturn(false);
+        ComunicationService comunicationService=new ComuncationServiceImpl();
 
         //acts
-        Comunication comunication = comunicationService.createComunicazioneFood(baseSpazialeService);
+        Comunication comunication=comunicationService.createComunicazioneFood(baseSpazialeService);
         //asserts
         assertEquals(ComunicationType.SERVIZIO, comunication.getComunicationType(), "la tipologia della comunicazione è corretta");
         assertEquals("ALERT: scorte cibo in esaurimento", comunication.getTesto(), "il testo della comunicazione è corretto");
