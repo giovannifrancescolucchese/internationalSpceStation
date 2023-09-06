@@ -42,4 +42,12 @@ class HeartBeatMatrixTest {
         //assert
         assertTrue(result);
     }
+
+    @Test
+    void getLastMinutesLifeParameters() {
+    }
+
+    @Test
+    void testIsOutOfRangeHeartBeatLast7Minutes() {
+    }
 }

@@ -15,6 +15,9 @@ public class LifeParameter {
     Integer pressure;
     Integer heartRate;
 
+    public LifeParameter() {
+    }
+
     public void setHeartRate(Integer heartRate) throws HealthException {
         this.heartRate = heartRate;
         if (heartRate>=180) throw new HealthException("pericolo infarto");

@@ -20,4 +20,5 @@ public class Astronauta {
     private Nazionalita nazionalita;
     private AgenziaSpaziale agenziaSpaziale;
     List<LifeParameter> lifeParameters;
+
 }

@@ -16,7 +16,7 @@ class FluidConverterTest {
     @ParameterizedTest(name = "GIVEN: {0} gallons WHEN: using this constructor THEN: I will have {1} liters")
     @CsvSource({"1, 3.78541",
             "0.264172, 1",
-//            Double.MAX_VALUE + "," + Double.POSITIVE_INFINITY,
+            Double.MAX_VALUE*0.264172 + " , " + Double.MAX_VALUE, //Expected and Actual are nearly equal, it fails due to approximation
             Double.MIN_VALUE + ", 0",
     })
     void setGalloniParameterizedTest(double firstValue, double result) {
@@ -35,7 +35,7 @@ class FluidConverterTest {
     @ParameterizedTest(name = "GIVEN: {0} liters WHEN: using this constructor THEN: I will have {1} gallons")
     @CsvSource({"1, 0.264172",
             "3.78541, 0.99",
-            Double.MAX_VALUE + "," + Double.MAX_VALUE + "/ 3.78541",
+            Double.MAX_VALUE +","+ Double.MAX_VALUE*0.264172,
             Double.MIN_VALUE + ", 0",
     })
     void setLitersParameterizedTest(double firstValue, double result) {

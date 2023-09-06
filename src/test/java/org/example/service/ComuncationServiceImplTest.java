@@ -32,4 +32,24 @@ class ComuncationServiceImplTest {
         assertEquals("ALERT: scorte cibo in esaurimento", comunication.getTesto(), "il testo della comunicazione è corretto");
 
     }
+
+    @Test
+    void createHealthComunicazioneHeartBeat() {
+    }
+
+    @Test
+    void createHealthComunicazionePressure() {
+    }
+
+    @Test
+    void createComunicazioneFood() {
+    }
+
+    @Test
+    void createComunicazioneWater() {
+    }
+
+    @Test
+    void createComunicazioneTrash() {
+    }
 }
