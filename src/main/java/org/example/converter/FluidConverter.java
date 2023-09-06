@@ -10,15 +10,14 @@ public class FluidConverter {
     double litri;
     double galloni;
 
-    void setGalloni(double galloni) {
+    public void setGalloni(double galloni) {
         this.galloni=galloni;
         this.litri=galloni/0.264172;
     }
 
-    void setLitri(double litri) {
+    public void setLitri(double litri) {
         this.litri=litri;
         this.galloni=litri*0.264172;
     }
-
 
 }

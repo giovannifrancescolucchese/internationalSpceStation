@@ -23,8 +23,7 @@ class BaseSpazialeServiceImplTest {
     /* il test falliva, ho reso public il metodo setKili della classe WeithConverter,
       altrimenti non sarebbe stato accessibile al di fuori del package */
     @Test
-    @DisplayName("GIVEN base with 2000 trash modulo WHEN check THEN trash is enough")
-    void checkTrash() {
+    void givenBaseWith100TrashWhenheckTrashThenFalse() {
         // Arrange
         Astronauta astronautaCapitano = new Astronauta(
                 "Samantha",
@@ -69,10 +68,9 @@ class BaseSpazialeServiceImplTest {
         //assert
         assertFalse(checkTrash);
     }
-//il test sguente falliva, nella classe BaseSpazialeServiceImpl a riga 45 ho sostituito STORAGE_TRASH con STORAGE_FOOD
+//il test seguente falliva perche' nella classe BaseSpazialeServiceImpl a riga 45 anziche' esserci STORAGE_TRASH c'era STORAGE_FOOD
     @Test
-    @DisplayName("GIVEN base with 2000 trash modulo WHEN check THEN trash is enough")
-    void checkTrash2() {
+    void givenBaseWith2000TrashWhenCheckTrashThenTrue() {
         // Arrange
         Astronauta astronautaCapitano = new Astronauta(
                 "Samantha",
