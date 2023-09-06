@@ -18,7 +18,7 @@ public class FluidConverter {
         this.litri=galloni/0.264172;
     }
 
-    void setLitri(double litri) {
+    public void setLitri(double litri) {
         this.litri=litri;
         this.galloni=litri*0.264172;
     }

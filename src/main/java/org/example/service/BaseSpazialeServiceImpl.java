@@ -5,10 +5,14 @@ import org.example.converter.WeightConverter;
 import org.example.enums.ModuloTipo;
 import org.example.model.BaseSpaziale;
 import org.example.model.Modulo;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Data
+@AllArgsConstructor
 public class BaseSpazialeServiceImpl implements BaseSpazialeService {
     BaseSpaziale baseSpaziale;
 
@@ -42,7 +46,17 @@ public class BaseSpazialeServiceImpl implements BaseSpazialeService {
     @Override
     public boolean checkTrash() {
         List<Modulo> listTrashModules=this.baseSpaziale.getModuli().stream()
-                .filter(modulo -> modulo.getModuloTipo().equals(ModuloTipo.STORAGE_FOOD))
+                .filter(modulo -> modulo.getModuloTipo().equals(ModuloTipo.STORAGE_TRASH)) //FIXED MODULE POINTING TO FOOD ENUM INSTEAD OF TRASH
+                .collect(Collectors.toList());
+        Double trash=listTrashModules.stream().map(Modulo::getWeight).collect(Collectors.toList())
+                .stream().mapToDouble(WeightConverter::getKili).sum();
+        if (trash/this.baseSpaziale.getEquipaggio().getFormazione().size()>800) return true;
+        return false;
+    }
+
+    public boolean checkTrash_bug() {
+        List<Modulo> listTrashModules=this.baseSpaziale.getModuli().stream()
+                .filter(modulo -> modulo.getModuloTipo().equals(ModuloTipo.STORAGE_FOOD)) //FIXED MODULE POINTING TO FOOD ENUM INSTEAD OF TRASH
                 .collect(Collectors.toList());
         Double trash=listTrashModules.stream().map(Modulo::getWeight).collect(Collectors.toList())
                 .stream().mapToDouble(WeightConverter::getKili).sum();
