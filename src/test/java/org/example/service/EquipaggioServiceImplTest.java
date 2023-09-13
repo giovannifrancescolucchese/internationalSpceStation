@@ -50,6 +50,7 @@ class EquipaggioServiceImplTest {
         assertFalse(result);
     }
 
+    //OK
 
     @Test
     @DisplayName("GIVEN: An equipaggio with 2 members of different space agencies, WHEN; trying to check a third astronaut with atLeast70percNoSameSpaceAncy, THEN; true, due to it being either 33%,33%,33%, or 66% and 33%")

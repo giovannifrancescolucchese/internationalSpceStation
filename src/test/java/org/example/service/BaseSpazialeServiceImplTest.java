@@ -92,3 +92,4 @@ class BaseSpazialeServiceImplTest {
         assertEquals(result, expectedResult);
     }
 }
+//OK

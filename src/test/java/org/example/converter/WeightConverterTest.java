@@ -51,3 +51,5 @@ class WeightConverterTest {
         assertEquals(expectedResult, actualResult);
     }
 }
+
+//OK
