@@ -26,13 +26,17 @@ class BaseSpazialeTest {
 
 
         Equipaggio equipaggio = new Equipaggio(new ArrayList<>(), astronautaCapitano, astronautaVice);
+        //attenzione che il capitano e il vice non fanno parte della formazione
         BaseSpaziale baseSpaziale = new BaseSpaziale(new ArrayList<>(), equipaggio);
+
 
         // Act
         Integer postiLetto = baseSpaziale.getPostiLetto();
 
         // Assert
         assertEquals(0, postiLetto);
+
+        //test abbastanza ovvio...non stiamo testando nulla di particolare non avendo la base spaziale moduli dormitori
     }
 
     @Test
@@ -46,6 +50,8 @@ class BaseSpazialeTest {
 
 
         Equipaggio equipaggio = new Equipaggio(new ArrayList<>(), astronautaCapitano, astronautaVice);
+        //attenzione che il capitano e il vice non fanno parte della formazione
+
         Modulo modulo = new Modulo(5, "posti letto", new ArrayList<>(), AgenziaSpaziale.NASA, ModuloTipo.DORMITORIO, new FluidConverter(), new WeightConverter());
         List<Modulo> moduloList = new ArrayList<>();
         moduloList.add(modulo);
@@ -58,4 +64,7 @@ class BaseSpazialeTest {
         // Assert
         assertEquals(5, postiLetto);
     }
+
+    //OK
+    //potevi con sforzo minimo associare più moduli dormitorio alla base spaziale per rendere il test un po' più complesso...
 }

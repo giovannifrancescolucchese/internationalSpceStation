@@ -29,3 +29,5 @@ class FluidConverterTest {
         assertEquals(1.32086, fluidConverter.getGalloni(), 0.0001);
     }
 }
+
+//potevi usare parametrized test per vedere un po i BVA

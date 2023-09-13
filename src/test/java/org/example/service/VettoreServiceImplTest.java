@@ -15,6 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class VettoreServiceImplTest {
 
     //possibile bug
+    //ESATTO ... nella divisione per il calcolo della percentuale in canAddModulo .... potervi proporre soluzione/fix
     @Test
     void canAddModulo() {
     // Arrange

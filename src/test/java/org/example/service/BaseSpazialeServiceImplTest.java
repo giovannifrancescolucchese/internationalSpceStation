@@ -165,4 +165,6 @@ class BaseSpazialeServiceImplTest {
         //assert
         assertFalse(checkFood);
     }
+
+    //OK
 }

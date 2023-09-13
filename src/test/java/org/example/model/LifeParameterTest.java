@@ -22,5 +22,7 @@ class LifeParameterTest {
 
         // Assert
         assertEquals(60, lifeParameter.getHeartRate());
+
+        //BANALE, si poteva anche non testare
     }
 }

@@ -29,3 +29,6 @@ class WeightConverterTest {
         assertEquals(22.0462, converter.getLibbre(), 0.0001);
     }
 }
+
+
+//potevi usare parametrized test per vedere un po i BVA
