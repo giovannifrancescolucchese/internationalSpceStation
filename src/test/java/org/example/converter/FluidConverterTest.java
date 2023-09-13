@@ -33,4 +33,6 @@ class FluidConverterTest {
         //assert
         assertEquals(expectedResult, result, () -> String.format("%.2f liters should equals to %.2f gallons", liters, expectedResult));
     }
+
+    //TODO: potevi verificare anche la conversione da galloni a litri
 }

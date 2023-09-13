@@ -8,4 +8,5 @@ public interface VettoreService {
     boolean canAddModulo(Vettore vettore, Modulo modulo);
 
 
+    boolean canAddModuloCorrect(Vettore vettore, Modulo modulo);
 }

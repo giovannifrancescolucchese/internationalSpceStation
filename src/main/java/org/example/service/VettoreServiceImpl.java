@@ -12,5 +12,13 @@ public class VettoreServiceImpl implements VettoreService {
         return (percentualeIfAdd <= 50);
     }
 
+    @Override
+    public boolean canAddModuloCorrect(Vettore vettore, Modulo modulo) {
+        long moduliStessaAgenzia = vettore.getModuli().stream()
+                .filter(m -> m.getAgenziaSpaziale().equals(vettore.getAgenziaSpaziale())).count();
+        double percentualeIfAdd = ((moduliStessaAgenzia + 1) / (Double.valueOf(vettore.getModuli().size() + 1))) * 100;
+        return (percentualeIfAdd <= 50);
+    }
+
 
 }

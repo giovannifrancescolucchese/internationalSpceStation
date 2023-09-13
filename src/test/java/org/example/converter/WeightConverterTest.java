@@ -30,4 +30,6 @@ class WeightConverterTest {
         //assert
         assertEquals(expectedResult, result, () -> String.format("%.2f kili should equals to %.2f libbre", kili, expectedResult));
     }
+
+    //TODO: potevi verificare anche la conversione da libbre a kili
 }

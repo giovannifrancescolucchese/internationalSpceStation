@@ -25,7 +25,7 @@ class PressureMatrixTest {
     @DisplayName("GIVEN un astronauta maschio di 35 anni con average pressure di 73 WHEN isOutOfRangePressureInOneDay THEN true")
     void isOutOfRangePressureInOneDay() {
         //arrange
-
+        //TODO: lista lifeParameterList vuota!!!
         Astronauta astronauta = new Astronauta("", "", LocalDate.now().minusYears(35L),
                 Arrays.asList(CompitoAstronauta.INGEGNERE), 'M', Nazionalita.italiana, AgenziaSpaziale.ESA, lifeParameterList);
         PressureMatrix pressureMatrix = new PressureMatrix(astronauta);
@@ -38,7 +38,7 @@ class PressureMatrixTest {
     @DisplayName("GIVEN un astronauta maschio di 35 anni con average pressure di 78 WHEN isOutOfRangePressureInOneDay THEN false")
     void isOutOfRangePressureInOneDay2() {
         //arrange
-
+        //TODO: lista lifeParameterList vuota!!!
         Astronauta astronauta = new Astronauta("", "", LocalDate.now().minusYears(35L),
                 Arrays.asList(CompitoAstronauta.INGEGNERE), 'M', Nazionalita.italiana, AgenziaSpaziale.ESA, lifeParameterList);
         PressureMatrix pressureMatrix = new PressureMatrix(astronauta);
