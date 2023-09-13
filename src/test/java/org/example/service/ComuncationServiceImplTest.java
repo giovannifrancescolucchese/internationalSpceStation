@@ -32,4 +32,6 @@ class ComuncationServiceImplTest {
         assertEquals("ALERT: scorte cibo in esaurimento", comunication.getTesto(), "il testo della comunicazione è corretto");
     }
 
+
+    //l'unico Mock ne test l'ho definito io....
 }
