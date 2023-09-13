@@ -65,6 +65,9 @@ class PressureMatrixTest {
         assertEquals(result, expectedResult);
     }
 
+
+    //OK
+
 //    @Test
 //    @DisplayName("GIVEN un astronauta femmina di 20 anni con ultimi 25 ore media di presione a 59 WHEN isOutOfRangePressureInOneDay THEN true")
 //    void isOutOfRangePressureLast24Hours() {
