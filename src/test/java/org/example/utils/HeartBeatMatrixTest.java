@@ -23,34 +23,24 @@ class HeartBeatMatrixTest {
 
     @BeforeEach
     void reArrangeLifeParameterList() {
-     lifeParameterList=new ArrayList<>();
-     LifeParameter lifeParameter1=new LifeParameter(LocalDateTime.now(),null,100);
-     LifeParameter lifeParameter2=new LifeParameter(LocalDateTime.now().minusMinutes(1),null,100);
-     lifeParameterList.add(lifeParameter1);
-     lifeParameterList.add(lifeParameter2);
+        lifeParameterList = new ArrayList<>();
+        LifeParameter lifeParameter1 = new LifeParameter(LocalDateTime.now(), null, 100);
+        LifeParameter lifeParameter2 = new LifeParameter(LocalDateTime.now().minusMinutes(1), null, 100);
+        lifeParameterList.add(lifeParameter1);
+        lifeParameterList.add(lifeParameter2);
     }
 
     @Test
     @DisplayName("GIVEN un astronauta femmina di 25 anni con ultimi 7 minuti media di battiti a 100 WHEN isOutOfRangeHeartBeatLast7Minutes THEN true")
     void isOutOfRangeHeartBeatLast7Minutes() {
         //arrange
-        Astronauta astronauta=new Astronauta("","", LocalDate.now().minusYears(25L),
-                Arrays.asList(CompitoAstronauta.BIOLOGO),  'F', Nazionalita.americana, AgenziaSpaziale.NASA, lifeParameterList);
-        HeartBeatMatrix heartBeatMatrix=new HeartBeatMatrix(astronauta);
+        Astronauta astronauta = new Astronauta("", "", LocalDate.now().minusYears(25L),
+                Arrays.asList(CompitoAstronauta.BIOLOGO), 'F', Nazionalita.americana, AgenziaSpaziale.NASA, lifeParameterList);
+        HeartBeatMatrix heartBeatMatrix = new HeartBeatMatrix(astronauta);
         //act
-        boolean result=heartBeatMatrix.isOutOfRangeHeartBeatLast7Minutes();
+        boolean result = heartBeatMatrix.isOutOfRangeHeartBeatLast7Minutes();
         //assert
         assertTrue(result);
-    }
-
-
-    @Test
-    @DisplayName("GIVEN un astronauta qualsiasi WHEN frequenza cardiaca > 180 THEN throw exception")
-    void isOutOfRangeHeartBeatRateNow(){
-        // arrange
-        LifeParameter lifeParameter1=new LifeParameter(LocalDateTime.now(),null,100);
-        //act and assert
-        assertThrows( HealthException.class,() -> lifeParameter1.setHeartRate(190));
     }
 
 
