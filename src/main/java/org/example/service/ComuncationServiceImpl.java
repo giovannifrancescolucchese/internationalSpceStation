@@ -32,14 +32,14 @@ public class ComuncationServiceImpl implements ComunicationService{
 
     @Override
     public Comunication createComunicazioneWater(BaseSpazialeService baseSpazialeService) {
-        if (baseSpazialeService.checkWater())
+        if (!baseSpazialeService.checkWater())
             return new Comunication("ALERT: scorta acqua in esaurimento", ComunicationType.SERVIZIO);
         return new Comunication("scorte acqua sotto controllo", ComunicationType.SERVIZIO);
     }
 
     @Override
     public Comunication createComunicazioneTrash(BaseSpazialeService baseSpazialeService) {
-        if (baseSpazialeService.checkFood())
+        if (!baseSpazialeService.checkTrash())
             return new Comunication("ALERT: espellere la spazzatura", ComunicationType.SERVIZIO);
         return new Comunication("capacità spazzatura sotto controllo", ComunicationType.SERVIZIO);
     }

@@ -32,4 +32,44 @@ class ComuncationServiceImplTest {
         assertEquals("ALERT: scorte cibo in esaurimento", comunication.getTesto(), "il testo della comunicazione è corretto");
 
     }
+    @Test
+    @DisplayName("GIVEN water status not enough in base spaziale WHEN createComunicazioneWater THEN create a Comunication of tipe ComunicationType.SERVIZIO with testo equal to ALERT: scorta acqua in esaurimento")
+    void createComunicazioneWaterNotEnough() {
+        //arrange
+
+        Mockito.when(baseSpazialeService.checkWater()).thenReturn(false);
+        ComunicationService comunicationService=new ComuncationServiceImpl();
+
+        //acts
+        Comunication comunication=comunicationService.createComunicazioneWater(baseSpazialeService);
+        //asserts
+        assertFalse(baseSpazialeService.checkWater());
+        // C'è un errore!
+        //Perchè se checkWater è False viene generata l'altra comunicazione! Al contrario di checkfood
+        //Errore corretto
+        // Ora i metodi sono coerenti con checkFood
+        assertEquals(ComunicationType.SERVIZIO, comunication.getComunicationType(), "la tipologia della comunicazione è corretta");
+        assertEquals("ALERT: scorta acqua in esaurimento", comunication.getTesto(), "il testo della comunicazione è corretto");
+
+    }
+    @Test
+    @DisplayName("GIVEN trash status  enough in base spaziale WHEN createComunicazioneWater THEN create a Comunication of tipe ComunicationType.SERVIZIO with testo equal to ")
+    void createComunicazioneTrashEnough() {
+        // Errore corretto
+        // C'era scritto checkFood invece che checkTrash
+        // Ora i metodi sono coerenti con checkFood con il not
+        //arrange
+
+        Mockito.when(baseSpazialeService.checkTrash()).thenReturn(false);
+        ComunicationService comunicationService=new ComuncationServiceImpl();
+
+        //acts
+        Comunication comunication=comunicationService.createComunicazioneTrash(baseSpazialeService);
+        //asserts
+        assertFalse(baseSpazialeService.checkTrash());
+
+        assertEquals(ComunicationType.SERVIZIO, comunication.getComunicationType(), "la tipologia della comunicazione è corretta");
+        assertEquals("ALERT: espellere la spazzatura", comunication.getTesto(), "il testo della comunicazione è corretto");
+
+    }
 }
