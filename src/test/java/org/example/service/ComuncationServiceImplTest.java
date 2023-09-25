@@ -1,7 +1,6 @@
 package org.example.service;
 
 import org.example.enums.ComunicationType;
-import org.example.model.BaseSpaziale;
 import org.example.model.Comunication;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -23,25 +22,26 @@ class ComuncationServiceImplTest {
     void createComunicazioneFoodNotEnough() {
         //arrange
         Mockito.when(baseSpazialeService.checkFood()).thenReturn(false);
-        ComunicationService comunicationService=new ComuncationServiceImpl();
+        ComunicationService comunicationService = new ComuncationServiceImpl();
 
         //acts
-        Comunication comunication=comunicationService.createComunicazioneFood(baseSpazialeService);
+        Comunication comunication = comunicationService.createComunicazioneFood(baseSpazialeService);
         //asserts
         assertEquals(ComunicationType.SERVIZIO, comunication.getComunicationType(), "la tipologia della comunicazione è corretta");
         assertEquals("ALERT: scorte cibo in esaurimento", comunication.getTesto(), "il testo della comunicazione è corretto");
 
     }
+
     @Test
     @DisplayName("GIVEN water status not enough in base spaziale WHEN createComunicazioneWater THEN create a Comunication of tipe ComunicationType.SERVIZIO with testo equal to ALERT: scorta acqua in esaurimento")
     void createComunicazioneWaterNotEnough() {
         //arrange
 
         Mockito.when(baseSpazialeService.checkWater()).thenReturn(false);
-        ComunicationService comunicationService=new ComuncationServiceImpl();
+        ComunicationService comunicationService = new ComuncationServiceImpl();
 
         //acts
-        Comunication comunication=comunicationService.createComunicazioneWater(baseSpazialeService);
+        Comunication comunication = comunicationService.createComunicazioneWater(baseSpazialeService);
         //asserts
         assertFalse(baseSpazialeService.checkWater());
         // C'è un errore!
@@ -52,6 +52,7 @@ class ComuncationServiceImplTest {
         assertEquals("ALERT: scorta acqua in esaurimento", comunication.getTesto(), "il testo della comunicazione è corretto");
 
     }
+
     @Test
     @DisplayName("GIVEN trash status  enough in base spaziale WHEN createComunicazioneWater THEN create a Comunication of tipe ComunicationType.SERVIZIO with testo equal to ")
     void createComunicazioneTrashEnough() {
@@ -61,10 +62,10 @@ class ComuncationServiceImplTest {
         //arrange
 
         Mockito.when(baseSpazialeService.checkTrash()).thenReturn(false);
-        ComunicationService comunicationService=new ComuncationServiceImpl();
+        ComunicationService comunicationService = new ComuncationServiceImpl();
 
         //acts
-        Comunication comunication=comunicationService.createComunicazioneTrash(baseSpazialeService);
+        Comunication comunication = comunicationService.createComunicazioneTrash(baseSpazialeService);
         //asserts
         assertFalse(baseSpazialeService.checkTrash());
 
