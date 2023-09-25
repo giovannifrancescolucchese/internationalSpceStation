@@ -3,6 +3,7 @@ package org.example.utils;
 import org.example.enums.AgenziaSpaziale;
 import org.example.enums.CompitoAstronauta;
 import org.example.enums.Nazionalita;
+import org.example.exception.HealthException;
 import org.example.model.Astronauta;
 import org.example.model.LifeParameter;
 import org.junit.jupiter.api.BeforeEach;
@@ -33,7 +34,6 @@ class HeartBeatMatrixTest {
     @DisplayName("GIVEN un astronauta femmina di 25 anni con ultimi 7 minuti media di battiti a 100 WHEN isOutOfRangeHeartBeatLast7Minutes THEN true")
     void isOutOfRangeHeartBeatLast7Minutes() {
         //arrange
-
         Astronauta astronauta=new Astronauta("","", LocalDate.now().minusYears(25L),
                 Arrays.asList(CompitoAstronauta.BIOLOGO),  'F', Nazionalita.americana, AgenziaSpaziale.NASA, lifeParameterList);
         HeartBeatMatrix heartBeatMatrix=new HeartBeatMatrix(astronauta);
@@ -42,4 +42,16 @@ class HeartBeatMatrixTest {
         //assert
         assertTrue(result);
     }
+
+
+    @Test
+    @DisplayName("GIVEN un astronauta qualsiasi WHEN frequenza cardiaca > 180 THEN throw exception")
+    void isOutOfRangeHeartBeatRateNow(){
+        // arrange
+        LifeParameter lifeParameter1=new LifeParameter(LocalDateTime.now(),null,100);
+        //act and assert
+        assertThrows( HealthException.class,() -> lifeParameter1.setHeartRate(190));
+    }
+
+
 }
