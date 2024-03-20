@@ -4,8 +4,7 @@ import org.example.model.BaseSpaziale;
 
 public interface BaseSpazialeService {
     void init(BaseSpaziale baseSpaziale);
-
-    boolean function();
-    boolean checkFood();
-    boolean checkTrash();
+    boolean checkWaterAvailability();
+    boolean checkFoodAvailability();
+    boolean checkTrashCapacity();
 }

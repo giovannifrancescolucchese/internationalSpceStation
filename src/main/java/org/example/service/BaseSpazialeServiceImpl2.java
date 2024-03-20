@@ -14,39 +14,48 @@ public class BaseSpazialeServiceImpl2 implements BaseSpazialeService {
 
     @Override
     public void init(BaseSpaziale baseSpaziale) {
-        this.baseSpaziale=baseSpaziale;
+        this.baseSpaziale = baseSpaziale;
     }
 
     @Override
-    public boolean function() {
-        List<Modulo> a=this.baseSpaziale.getModuli().stream()
-                .filter(b -> b.getModuloTipo().equals(ModuloTipo.STORAGE_WATER))
+    public boolean checkWaterAvailability() {
+        List<Modulo> waterStorageModules = this.baseSpaziale.getModuli().stream()
+                .filter(modulo -> modulo.getModuloTipo().equals(ModuloTipo.STORAGE_WATER))
                 .collect(Collectors.toList());
-        Double c=a.stream().map(Modulo::getFluid).collect(Collectors.toList())
+
+        Double totalWaterInLitres = waterStorageModules.stream().map(Modulo::getFluid).collect(Collectors.toList())
                 .stream().mapToDouble(FluidConverter::getLitri).sum();
-        if (c/this.baseSpaziale.getEquipaggio().getFormazione().size()>1500) return true;
+
+        if (totalWaterInLitres / this.baseSpaziale.getEquipaggio().getFormazione().size() > 1500)
+            return true;
         return false;
     }
 
     @Override
-    public boolean checkFood() {
-        List<Modulo> listFoodModules=this.baseSpaziale.getModuli().stream()
+    public boolean checkFoodAvailability() {
+        List<Modulo> foodStorageModules = this.baseSpaziale.getModuli().stream()
                 .filter(modulo -> modulo.getModuloTipo().equals(ModuloTipo.STORAGE_FOOD))
                 .collect(Collectors.toList());
-        Double food=listFoodModules.stream().map(Modulo::getWeight).collect(Collectors.toList())
+
+        Double totalFoodInKilos = foodStorageModules.stream().map(Modulo::getWeight).collect(Collectors.toList())
                 .stream().mapToDouble(WeightConverter::getKili).sum();
-        if (food/this.baseSpaziale.getEquipaggio().getFormazione().size()>1600) return true;
+
+        if (totalFoodInKilos / this.baseSpaziale.getEquipaggio().getFormazione().size() > 1600)
+            return true;
         return false;
     }
 
     @Override
-    public boolean checkTrash() {
-        List<Modulo> listTrashModules=this.baseSpaziale.getModuli().stream()
-                .filter(modulo -> modulo.getModuloTipo().equals(ModuloTipo.STORAGE_FOOD))
+    public boolean checkTrashCapacity() {
+        List<Modulo> trashStorageModules = this.baseSpaziale.getModuli().stream()
+                .filter(modulo -> modulo.getModuloTipo().equals(ModuloTipo.STORAGE_TRASH))
                 .collect(Collectors.toList());
-        Double trash=listTrashModules.stream().map(Modulo::getWeight).collect(Collectors.toList())
+
+        Double totalTrashInKilos = trashStorageModules.stream().map(Modulo::getWeight).collect(Collectors.toList())
                 .stream().mapToDouble(WeightConverter::getKili).sum();
-        if (trash/this.baseSpaziale.getEquipaggio().getFormazione().size()>950) return true;
+
+        if (totalTrashInKilos / this.baseSpaziale.getEquipaggio().getFormazione().size() > 950)
+            return true;
         return false;
     }
 }

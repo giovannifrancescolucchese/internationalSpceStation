@@ -6,7 +6,7 @@ import org.example.model.Comunication;
 import org.example.utils.HeartBeatMatrix;
 import org.example.utils.PressureMatrix;
 
-public class ComuncationServiceImpl implements ComunicationService{
+public class ComuncationServiceImpl implements ComunicationService {
     @Override
     public Comunication createHealthComunicazioneHeartBeat(Astronauta astronauta, HeartBeatMatrix heartBeatMatrix) {
         heartBeatMatrix.setAstronauta(astronauta);
@@ -25,22 +25,22 @@ public class ComuncationServiceImpl implements ComunicationService{
 
     @Override
     public Comunication createComunicazioneFood(BaseSpazialeService baseSpazialeService) {
-        if (baseSpazialeService.checkFood())
+        if (baseSpazialeService.checkFoodAvailability())
             return new Comunication("scorte cibo sotto controllo", ComunicationType.SERVIZIO);
         return new Comunication("ALERT: scorte cibo in esaurimento", ComunicationType.SERVIZIO);
     }
 
     @Override
     public Comunication createComunicazioneWater(BaseSpazialeService baseSpazialeService) {
-        if (baseSpazialeService.function())
-            return new Comunication("ALERT: scorta acqua in esaurimento", ComunicationType.SERVIZIO);
-        return new Comunication("scorte acqua sotto controllo", ComunicationType.SERVIZIO);
+        if (baseSpazialeService.checkWaterAvailability())
+            return new Comunication("scorte acqua sotto controllo", ComunicationType.SERVIZIO);
+        return new Comunication("ALERT: scorta acqua in esaurimento", ComunicationType.SERVIZIO);
     }
 
     @Override
     public Comunication createComunicazioneTrash(BaseSpazialeService baseSpazialeService) {
-        if (baseSpazialeService.checkFood())
-            return new Comunication("ALERT: espellere la spazzatura", ComunicationType.SERVIZIO);
-        return new Comunication("capacità spazzatura sotto controllo", ComunicationType.SERVIZIO);
+        if (baseSpazialeService.checkTrashCapacity())
+            return new Comunication("capacità spazzatura sotto controllo", ComunicationType.SERVIZIO);
+        return new Comunication("ALERT: espellere la spazzatura", ComunicationType.SERVIZIO);
     }
 }
