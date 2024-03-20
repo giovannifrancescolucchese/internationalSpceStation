@@ -9,7 +9,7 @@ import org.example.model.Modulo;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class BaseSpazialeServiceImpl implements BaseSpazialeService {
+public class BaseSpazialeServiceImpl2 implements BaseSpazialeService {
     BaseSpaziale baseSpaziale;
 
     @Override
@@ -24,7 +24,7 @@ public class BaseSpazialeServiceImpl implements BaseSpazialeService {
                 .collect(Collectors.toList());
         Double c=a.stream().map(Modulo::getFluid).collect(Collectors.toList())
                 .stream().mapToDouble(FluidConverter::getLitri).sum();
-        if (c/this.baseSpaziale.getEquipaggio().getFormazione().size()>1000) return true;
+        if (c/this.baseSpaziale.getEquipaggio().getFormazione().size()>1500) return true;
         return false;
     }
 
@@ -35,7 +35,7 @@ public class BaseSpazialeServiceImpl implements BaseSpazialeService {
                 .collect(Collectors.toList());
         Double food=listFoodModules.stream().map(Modulo::getWeight).collect(Collectors.toList())
                 .stream().mapToDouble(WeightConverter::getKili).sum();
-        if (food/this.baseSpaziale.getEquipaggio().getFormazione().size()>800) return true;
+        if (food/this.baseSpaziale.getEquipaggio().getFormazione().size()>1600) return true;
         return false;
     }
 
@@ -46,7 +46,7 @@ public class BaseSpazialeServiceImpl implements BaseSpazialeService {
                 .collect(Collectors.toList());
         Double trash=listTrashModules.stream().map(Modulo::getWeight).collect(Collectors.toList())
                 .stream().mapToDouble(WeightConverter::getKili).sum();
-        if (trash/this.baseSpaziale.getEquipaggio().getFormazione().size()>800) return true;
+        if (trash/this.baseSpaziale.getEquipaggio().getFormazione().size()>950) return true;
         return false;
     }
 }
