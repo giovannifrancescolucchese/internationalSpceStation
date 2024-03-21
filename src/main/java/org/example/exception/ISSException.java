@@ -4,10 +4,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**
- * eccezioni proprie dell'applicativo della base spaziale internazionale
+ * Represents exceptions specific to the International Space Station (ISS) application.
+ * This class extends the generic Exception class in Java to provide more detailed error
+ * information pertaining to the ISS application scenarios.
  */
-@AllArgsConstructor
-@Data
+@Data // This annotation automatically generates getter, setter, equals, hashcode, and toString methods.
+@AllArgsConstructor // This annotation generates a constructor with one argument for each field in the class.
 public class ISSException extends Exception {
-    String description;
+    // Description of the exception
+    String description; // The detailed message of the exception.
 }

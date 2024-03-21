@@ -1,12 +1,27 @@
 package org.example.enums;
 
 /**
- * il tipo di comunicazione
+ * Represents the type of communication.
+ * This enum defines different communication types used in the system.
  */
 public enum ComunicationType {
+    /**
+     * Communication type for service-related messages.
+     */
     SERVIZIO,
-    PARAMETRI_MODULO,
-    PARAMETRI_VETTORE,
-    PARAMETRI_VITALI
 
+    /**
+     * Communication type for module parameters.
+     */
+    PARAMETRI_MODULO,
+
+    /**
+     * Communication type for vector parameters.
+     */
+    PARAMETRI_VETTORE,
+
+    /**
+     * Communication type for vital parameters.
+     */
+    PARAMETRI_VITALI
 }
